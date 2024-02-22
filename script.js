@@ -28,6 +28,17 @@ async function translate(yourText) {
   }
 }
 
-btnTranslate.addEventListener("click", () => {
+// btnTranslate.addEventListener("click", () => {
+//   translate(inputText.value);
+// });
+
+// Function to handle input text change
+const handleInputChange = () => {
   translate(inputText.value);
-});
+};
+
+// Event listener for input text change
+inputText.addEventListener("input", handleInputChange);
+
+// Initial translation on page load
+translate(inputText.value);
