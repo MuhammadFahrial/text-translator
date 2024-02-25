@@ -1,8 +1,10 @@
 const inputText = document.getElementById("inputText");
 const outputText = document.getElementById("output");
 const btnTranslate = document.querySelector(".btn-translate");
+const sourceLanguange = document.getElementById("category-source");
+const targetLanguange = document.getElementById("category-target");
 
-async function translate(yourText) {
+async function translate(yourText, source_language, target_language) {
   const url = "https://text-translator2.p.rapidapi.com/translate";
   const options = {
     method: "POST",
@@ -12,8 +14,8 @@ async function translate(yourText) {
       "X-RapidAPI-Host": "text-translator2.p.rapidapi.com",
     },
     body: new URLSearchParams({
-      source_language: "id",
-      target_language: "en",
+      source_language: source_language,
+      target_language: target_language,
       text: yourText,
     }),
   };
@@ -28,17 +30,6 @@ async function translate(yourText) {
   }
 }
 
-// btnTranslate.addEventListener("click", () => {
-//   translate(inputText.value);
-// });
-
-// Function to handle input text change
-const handleInputChange = () => {
-  translate(inputText.value);
-};
-
-// Event listener for input text change
-inputText.addEventListener("input", handleInputChange);
-
-// Initial translation on page load
-translate(inputText.value);
+btnTranslate.addEventListener("click", () => {
+  translate(inputText.value, sourceLanguange.value, targetLanguange.value);
+});

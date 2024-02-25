@@ -60,6 +60,11 @@ h3{
     background: green;
 }
 
+select{
+    padding: 4px;
+    margin-bottom: 8px;
+}
+
 @media (min-width: 320px) and (max-width: 768px){
 
     .container{
